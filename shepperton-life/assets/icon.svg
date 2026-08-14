@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Shepperton Life</title>
+  <rect width="512" height="512" rx="116" fill="#17324d"/>
+  <circle cx="382" cy="126" r="58" fill="#f6c94c"/>
+  <path d="M0 309c90-98 184-101 278-10 80-68 158-65 234 8v205H0z" fill="#55a66b"/>
+  <path d="M125 289 256 180l131 109v146H125z" fill="#fff7e7" stroke="#17324d" stroke-width="24" stroke-linejoin="round"/>
+  <path d="m101 296 155-129 155 129" fill="none" stroke="#d99b2b" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M222 333h68v102h-68z" fill="#71364f" stroke="#17324d" stroke-width="18"/>
+</svg>

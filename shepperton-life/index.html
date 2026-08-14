@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#17324d">
+    <meta name="description" content="Shepperton Life — build a life, shape your days and grow your future.">
+    <title>Shepperton Life</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#app">Skip to game</a>
+
+    <main class="app" id="app">
+      <section class="screen screen--title is-active" data-screen="title" aria-labelledby="game-title">
+        <div class="title-scene" aria-hidden="true">
+          <span class="sun"></span>
+          <span class="hill hill--far"></span>
+          <span class="hill hill--near"></span>
+          <span class="house house--one"></span>
+          <span class="house house--two"></span>
+          <span class="tree tree--one"></span>
+          <span class="tree tree--two"></span>
+        </div>
+
+        <header class="title-header">
+          <a class="hub-link" href="../" aria-label="Return to MKG Game Hub">
+            <span aria-hidden="true">←</span>
+            MKG Game Hub
+          </a>
+          <button class="icon-button" type="button" data-open-settings aria-label="Open settings">⚙</button>
+        </header>
+
+        <div class="title-content">
+          <p class="eyebrow">A new village life awaits</p>
+          <h1 id="game-title">Shepperton <span>Life</span></h1>
+          <p class="tagline">Build a life. Shape your days. Grow your future.</p>
+
+          <div class="title-actions" aria-label="Main menu">
+            <button class="button button--primary" type="button" data-go="new-game">New Game</button>
+            <button class="button button--secondary" type="button" data-go="continue" data-continue-button disabled>
+              Continue
+              <small>No saved life yet</small>
+            </button>
+          </div>
+        </div>
+
+        <p class="stage-label">Foundation preview · Stage 2</p>
+      </section>
+
+      <section class="screen screen--panel" data-screen="new-game" aria-labelledby="new-game-title" hidden>
+        <header class="panel-header">
+          <button class="back-button" type="button" data-go="title" aria-label="Back to title screen">←</button>
+          <div>
+            <p class="eyebrow">New beginning</p>
+            <h2 id="new-game-title">Your new life</h2>
+          </div>
+          <button class="icon-button" type="button" data-open-settings aria-label="Open settings">⚙</button>
+        </header>
+
+        <div class="panel-scroll">
+          <article class="character-card">
+            <div class="character-portrait" role="img" aria-label="Approved Shepperton Life protagonist with auburn hair and mustard jacket"></div>
+            <div>
+              <p class="card-label">Your protagonist</p>
+              <h3>Calm Creative</h3>
+              <p>Thoughtful, observant and ready to build a life in the village.</p>
+            </div>
+          </article>
+
+          <label class="field">
+            <span>What should the village call you?</span>
+            <input id="player-name" name="playerName" type="text" maxlength="18" autocomplete="nickname" placeholder="Enter a name">
+            <small>Up to 18 characters. You can change this later.</small>
+          </label>
+
+          <article class="start-card">
+            <span class="start-card__icon" aria-hidden="true">⌂</span>
+            <div>
+              <p class="card-label">Starting home</p>
+              <h3>Marlowe Mews</h3>
+              <p>A cosy rented flat, £60 in your pocket and a full day ahead.</p>
+            </div>
+          </article>
+        </div>
+
+        <footer class="sticky-action">
+          <button class="button button--primary" type="button" data-start-preview>Begin Day 1</button>
+        </footer>
+      </section>
+
+      <section class="screen screen--panel" data-screen="continue" aria-labelledby="continue-title" hidden>
+        <header class="panel-header">
+          <button class="back-button" type="button" data-go="title" aria-label="Back to title screen">←</button>
+          <div>
+            <p class="eyebrow">Welcome back</p>
+            <h2 id="continue-title">Continue</h2>
+          </div>
+          <span aria-hidden="true"></span>
+        </header>
+        <div class="empty-state">
+          <span class="empty-state__icon" aria-hidden="true">☀</span>
+          <h3>No saved life yet</h3>
+          <p>Your automatic save will appear here after the playable village is added.</p>
+          <button class="button button--primary" type="button" data-go="new-game">Start a New Game</button>
+        </div>
+      </section>
+
+      <section class="screen screen--game" data-screen="game-preview" aria-labelledby="preview-title" hidden>
+        <header class="hud">
+          <div>
+            <span>Day 1</span>
+            <strong>08:00</strong>
+          </div>
+          <div class="energy" aria-label="Energy 100 out of 100">
+            <span>Energy</span>
+            <progress max="100" value="100">100%</progress>
+          </div>
+          <div class="money">
+            <span>Money</span>
+            <strong>£60.00</strong>
+          </div>
+          <button class="icon-button icon-button--hud" type="button" data-go="title" aria-label="Return to title screen">Ⅱ</button>
+        </header>
+
+        <div class="foundation-world">
+          <span class="world-road world-road--horizontal"></span>
+          <span class="world-road world-road--vertical"></span>
+          <article class="location-card">
+            <span class="location-card__icon" aria-hidden="true">⌂</span>
+            <p class="card-label">Starting home</p>
+            <h2 id="preview-title">Marlowe Mews</h2>
+            <p>The village foundation is ready. Touch movement and the full compact map arrive in Stage 3.</p>
+          </article>
+        </div>
+
+        <div class="objective-chip" aria-label="Current objective">
+          <span>First Steps</span>
+          <strong>Leave Marlowe Mews</strong>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="settings" id="settings-dialog" aria-labelledby="settings-title">
+      <form method="dialog">
+        <header class="settings__header">
+          <div>
+            <p class="eyebrow">Comfort and access</p>
+            <h2 id="settings-title">Settings</h2>
+          </div>
+          <button class="icon-button" value="cancel" aria-label="Close settings">×</button>
+        </header>
+
+        <label class="setting-row">
+          <span><strong>Large text</strong><small>Increase interface text size</small></span>
+          <input type="checkbox" data-setting="largeText">
+        </label>
+        <label class="setting-row">
+          <span><strong>High contrast</strong><small>Strengthen borders and labels</small></span>
+          <input type="checkbox" data-setting="highContrast">
+        </label>
+        <label class="setting-row">
+          <span><strong>Reduced motion</strong><small>Limit decorative movement</small></span>
+          <input type="checkbox" data-setting="reducedMotion">
+        </label>
+
+        <button class="button button--primary" value="confirm">Done</button>
+      </form>
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>

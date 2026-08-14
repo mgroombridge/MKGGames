@@ -1,0 +1,19 @@
+{
+  "name": "Shepperton Life",
+  "short_name": "Shepperton Life",
+  "description": "Build a life, shape your days and grow your future in a colourful fictional village.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff7e7",
+  "theme_color": "#17324d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
