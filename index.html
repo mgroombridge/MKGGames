@@ -322,27 +322,121 @@
         color: var(--muted);
       }
 
-      .games-foundation {
-        min-height: 210px;
+      .game-grid {
         display: grid;
-        place-items: center;
-        padding: 42px;
-        border: 1px dashed rgba(121, 232, 255, 0.32);
-        border-radius: var(--radius-lg);
-        background:
-          linear-gradient(rgba(64, 216, 255, 0.035), rgba(31, 128, 255, 0.02)),
-          var(--panel);
-        text-align: center;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
       }
 
-      .games-foundation strong {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 1.15rem;
+      .game-card {
+        min-width: 0;
+        padding: 12px 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background: linear-gradient(160deg, rgba(14, 43, 77, 0.86), rgba(5, 17, 34, 0.92));
+        box-shadow: 0 18px 44px rgba(0, 7, 18, 0.28);
       }
 
-      .games-foundation span {
+      .game-cover {
+        position: relative;
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        isolation: isolate;
+      }
+
+      .game-cover::before,
+      .game-cover::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .game-cover::before {
+        inset: 0;
+        z-index: -2;
+        background: var(--cover-background);
+      }
+
+      .game-cover::after {
+        width: 72%;
+        aspect-ratio: 1;
+        right: -20%;
+        bottom: -14%;
+        z-index: -1;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.22), transparent 62%);
+        box-shadow: 0 0 60px var(--cover-glow);
+      }
+
+      .cover-village {
+        --cover-background:
+          linear-gradient(152deg, transparent 38%, rgba(2, 23, 32, 0.7) 39%),
+          radial-gradient(circle at 72% 22%, #c4f4ff 0 5%, #3fb3d7 6% 16%, transparent 17%),
+          linear-gradient(145deg, #5fd4be, #126f83 45%, #092a4b 76%);
+        --cover-glow: rgba(95, 212, 190, 0.7);
+      }
+
+      .cover-lemonade {
+        --cover-background:
+          linear-gradient(28deg, transparent 48%, rgba(255, 255, 255, 0.18) 49% 51%, transparent 52%),
+          radial-gradient(circle at 38% 34%, #fff9a8 0 10%, #ffc935 11% 22%, transparent 23%),
+          linear-gradient(145deg, #ffcc40, #ff7b3e 50%, #4d2777);
+        --cover-glow: rgba(255, 201, 53, 0.72);
+      }
+
+      .cover-neon {
+        --cover-background:
+          linear-gradient(118deg, transparent 42%, rgba(104, 239, 255, 0.72) 43% 45%, transparent 46%),
+          linear-gradient(62deg, transparent 51%, rgba(255, 64, 214, 0.62) 52% 54%, transparent 55%),
+          radial-gradient(circle at 50% 42%, #5138be, #15114c 48%, #070c20 78%);
+        --cover-glow: rgba(164, 86, 255, 0.72);
+      }
+
+      .cover-forge {
+        --cover-background:
+          repeating-linear-gradient(45deg, transparent 0 28px, rgba(121, 232, 255, 0.12) 29px 30px),
+          radial-gradient(circle at 38% 35%, #79e8ff 0 7%, #1f80ff 8% 18%, transparent 19%),
+          linear-gradient(145deg, #1d426e, #081a34 56%, #030a16);
+        --cover-glow: rgba(64, 216, 255, 0.64);
+      }
+
+      .game-title {
+        min-height: 2.65em;
+        margin: 15px 4px 12px;
+        font-size: clamp(1rem, 1.7vw, 1.24rem);
+        line-height: 1.3;
+        letter-spacing: -0.025em;
+      }
+
+      .play-button {
+        width: 100%;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 14px;
+        border: 1px solid rgba(121, 232, 255, 0.22);
+        border-radius: 11px;
         color: var(--muted);
+        background: rgba(64, 216, 255, 0.055);
+        font: inherit;
+        font-size: 0.88rem;
+        font-weight: 760;
+      }
+
+      .play-button:not(:disabled) {
+        cursor: pointer;
+        color: #001326;
+        background: linear-gradient(120deg, var(--cyan-300), #62b6ff);
+        text-decoration: none;
+      }
+
+      .play-button:disabled {
+        cursor: not-allowed;
+        opacity: 0.78;
       }
 
       .site-footer {
@@ -385,6 +479,10 @@
           align-items: start;
           flex-direction: column;
           gap: 4px;
+        }
+
+        .game-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
@@ -449,9 +547,23 @@
           padding-bottom: 76px;
         }
 
-        .games-foundation {
-          min-height: 180px;
-          padding: 28px 20px;
+        .game-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .game-card {
+          padding: 10px 10px 12px;
+        }
+
+        .game-cover {
+          aspect-ratio: 16 / 10;
+        }
+
+        .game-title {
+          min-height: auto;
+          margin: 13px 3px 11px;
+          font-size: 1.08rem;
         }
 
         .footer-inner {
@@ -525,12 +637,7 @@
           <p>Each game will have its own place here, making the hub easy to expand as the collection grows.</p>
         </div>
 
-        <div class="games-foundation" aria-label="Future game collection area">
-          <div>
-            <strong>Game collection prepared</strong>
-            <span>Reusable game cards will be added in Stage 3.</span>
-          </div>
-        </div>
+        <div class="game-grid" id="game-grid" aria-label="Game collection"></div>
       </section>
     </main>
 
@@ -540,5 +647,47 @@
         <p>Original games. One growing collection.</p>
       </div>
     </footer>
+
+    <script>
+      const games = [
+        { title: "Shepperton Life", folder: "shepperton-life", cover: "village", available: false },
+        { title: "Lemonade Business Tycoon", folder: "lemonade-business", cover: "lemonade", available: false },
+        { title: "Future Game 03", folder: "future-game-03", cover: "neon", available: false },
+        { title: "Future Game 04", folder: "future-game-04", cover: "forge", available: false }
+      ];
+
+      const gameGrid = document.querySelector("#game-grid");
+
+      games.forEach((game) => {
+        const card = document.createElement("article");
+        card.className = "game-card";
+
+        const cover = document.createElement("div");
+        cover.className = `game-cover cover-${game.cover}`;
+        cover.setAttribute("role", "img");
+        cover.setAttribute("aria-label", `${game.title} cover image`);
+
+        const title = document.createElement("h3");
+        title.className = "game-title";
+        title.textContent = game.title;
+
+        const playControl = document.createElement(game.available ? "a" : "button");
+        playControl.className = "play-button";
+
+        if (game.available) {
+          playControl.href = `./${game.folder}/`;
+          playControl.textContent = "Play";
+          playControl.setAttribute("aria-label", `Play ${game.title}`);
+        } else {
+          playControl.type = "button";
+          playControl.disabled = true;
+          playControl.textContent = "Play · Coming soon";
+          playControl.setAttribute("aria-label", `${game.title} — coming soon`);
+        }
+
+        card.append(cover, title, playControl);
+        gameGrid.append(card);
+      });
+    </script>
   </body>
 </html>
